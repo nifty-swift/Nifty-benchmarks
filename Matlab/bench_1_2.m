@@ -1,4 +1,4 @@
-function bench_1_1() 
+function bench_1_2() 
 
 trials = 100;
 rows = 1000;
@@ -9,13 +9,14 @@ times = zeros(1,trials);
 for i = 1:trials
     
    M = randi(10000, rows, cols);
+   MtM = M'*M;
    
    tic();
-   inv(M);
+   chol(MtM, 'lower');
    t = toc();
    
    times(i) = t;
    
 end
 
-fprintf('Matlab - Benchmark 1.1: Average time = %f milliseconds\n', mean(times)*1000);
+fprintf('Matlab - Benchmark 1.2: Average time = %f milliseconds\n', mean(times)*1000);
