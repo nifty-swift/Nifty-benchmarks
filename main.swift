@@ -1,3 +1,0 @@
-/// Nifty benchmarks.
-
-import Nifty
